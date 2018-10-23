@@ -1,0 +1,29 @@
+{
+  "name": "gdprofiles",
+  "version": "1.0.0",
+  "description": "API for gdprofiles.com",
+  "main": "./lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nitreojs/gdprofile.git"
+  },
+  "keywords": [
+    "gd",
+    "api",
+    "geometry",
+    "dash",
+    "api",
+    "gdapi",
+    "gdprofiles",
+    "gdp"
+  ],
+  "author": "nitrojs",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nitreojs/gdprofile/issues"
+  },
+  "homepage": "https://github.com/nitreojs/gdprofile#readme"
+}
