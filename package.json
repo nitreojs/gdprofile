@@ -25,5 +25,8 @@
   "bugs": {
     "url": "https://github.com/nitreojs/gdprofile/issues"
   },
-  "homepage": "https://github.com/nitreojs/gdprofile#readme"
+  "homepage": "https://github.com/nitreojs/gdprofile#readme",
+  "dependencies": {
+    "node-fetch": "^2.2.0"
+  }
 }
