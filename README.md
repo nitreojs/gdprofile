@@ -12,14 +12,14 @@ If you want to find a user, you should use this:
 ```js
 const { search } = require('gdprofiles');
 ```
-And here you can choose one of these methods:
+
+Example:
 ```js
 const result = await search('Michigun'); // => Object
-```
-or
-```js
+
+// equals to
+
 const result = await search.user('Michigun'); // => Object
 ```
 
-Both of these methods will return object, but what method will you choose?
-Decide it for itself.
+Both of these methods will return the same object.
