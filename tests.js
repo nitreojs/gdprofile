@@ -14,5 +14,5 @@ const { search } = require('./lib/index');
   // searching for user that doesn't exist
 
   console.log(await search('userThatDoesntExist'));
-  // 404
+  // null
 })();

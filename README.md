@@ -24,7 +24,7 @@ const result = await search.user('Michigun'); // => Object
 But what, if we will try to find *not created* account?
 
 ```js
-console.log(await search('userThatDoesntExist')); // => 404
+console.log(await search('userThatDoesntExist')); // => null
 ```
 
-It returns *404* if user is not found!
+It returns *null* if user is not found!
