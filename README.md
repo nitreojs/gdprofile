@@ -1,7 +1,6 @@
 ## gdprofiles
-**gdprofiles** is an API for [GDProfiles](https://gdprofiles.com), which allow you to get:
-* search for one or more users
-* get player's account information
+**gdprofiles** is an API for [GDProfiles](https://gdprofiles.com), which allow you to:
+* search for one user and get his information
 * see daily level and it's info
 * get weekly demon and it's info
 * top-10 players
