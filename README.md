@@ -21,4 +21,10 @@ const result = await search('Michigun'); // => Object
 const result = await search.user('Michigun'); // => Object
 ```
 
-Both of these methods will return the same object.
+But what, if we will try to find *not created* account?
+
+```js
+console.log(await search('userThatDoesntExist')); // 404
+```
+
+It returns *404* if user is not found!
