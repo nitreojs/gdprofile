@@ -1,6 +1,6 @@
 const { search } = require('../lib/index.js');
 
-(async () => {
+(async function search() {
   console.log(await search('Michigun'));
   // { top: 4, stars: 61616, diamonds: 16661, ... }
 
