@@ -1,4 +1,4 @@
-const { search } = require('./lib/index.js');
+const { search } = require('../lib/index.js');
 
 (async () => {
   console.log(await search('Michigun'));
