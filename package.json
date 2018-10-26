@@ -27,6 +27,7 @@
   },
   "homepage": "https://github.com/nitreojs/gdprofile#readme",
   "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
     "node-fetch": "^2.2.0"
   }
 }
