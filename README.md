@@ -48,8 +48,8 @@ So easy!
 If you don't need my full functions, you always can use my custom functions!
 ```js
 const getDifficultyByImg = require('./functions/getDifficultyByImg.js');
+```
 
-// ...
-
+```js
 const { diff: difficulty, featured, epic } = getDifficultyByImg(img); // => Object
 ```
