@@ -6,8 +6,8 @@ const { search } = require('./lib/index.js');
 
   // they are equal!
 
-  console.log(await search.user('ZecretGD'));
-  // { top: 0 /* not in top */, stars: 8405, diamonds: 11982, ... }
+  console.log(await search.user('shaggy23'));
+  // { top: 3, stars: 89315, diamonds: 29625, ... }
 
 
 
