@@ -10,7 +10,7 @@
 #### search
 If you want to find a user, you should use this:
 ```js
-const { search } = require('gdprofiles');
+const { search } = require('./lib/index.js');
 ```
 
 Example:
@@ -34,7 +34,7 @@ It returns *null* if user is not found!
 
 If you want to get daily level in Geometry Dash, you should use this!
 ```js
-const { getDailyLevel } = require('gdprofiles');
+const { getDailyLevel } = require('./lib/index.js');
 ```
 
 Example:
@@ -42,3 +42,14 @@ Example:
 console.log(await getDailyLevel()); // => Object
 ```
 So easy!
+
+#### functions
+
+If you don't need my full functions, you always can use my custom functions!
+```js
+const getDifficultyByImg = require('./functions/getDifficultyByImg.js');
+
+// ...
+
+const { diff: difficulty, featured, epic } = getDifficultyByImg(img); // => Object
+```
