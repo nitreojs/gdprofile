@@ -7,7 +7,7 @@
 * top-10 players
 * top-10 creators
 ## API
-#### search
+### search
 If you want to find a user, you should use this:
 ```js
 const { search } = require('./lib/index.js');
@@ -30,7 +30,7 @@ console.log(await search('userThatDoesntExist')); // => null
 
 It returns *null* if user is not found!
 
-#### getDailyLevel
+### getDailyLevel
 
 If you want to get daily level in Geometry Dash, you should use this!
 ```js
@@ -43,7 +43,7 @@ console.log(await getDailyLevel()); // => Object
 ```
 So easy!
 
-#### functions
+### functions
 
 If you don't need my full functions, you always can use my custom functions!
 ```js
