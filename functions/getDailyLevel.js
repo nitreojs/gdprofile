@@ -1,5 +1,6 @@
 const fetch = require('node-fetch');
 const cheerio = require('cheerio');
+const { parse } = require('date-fns');
 
 const getDiff = require('./getDifficultyByImg');
 
@@ -8,14 +9,20 @@ async function getDailyLevel() {
   const $ = cheerio.load(result);
 
   const daily = $('div.col-sm-6.top10').eq(0);
-  const [, dailyNum] = daily.find('h3').text().match(/Daily Level\n#(.*)\n/i);
+  const [, dailyNum] = daily.find('h3')
+    .text()
+    .match(/Daily Level\n#(.*)\n/i);
 
-  const level = daily.find('h3').eq(1).find('a');
+  const level = daily.find('h3').eq(1)
+    .find('a');
   const levelName = level.eq(0).text();
   const creator = level.eq(1).text();
 
-  const diffImg = daily.find('.leveldifficon').attr('src');
+  const diffImg = daily.find('.leveldifficon')
+    .attr('src');
   const { diff, featured, epic } = getDiff(diffImg);
+
+  const timestamp = +parse(daily.find('ul.list-unstyled li').eq(0).text());
   
   const obj = {
     daily: +dailyNum,
@@ -24,6 +31,7 @@ async function getDailyLevel() {
     diff,
     featured,
     epic,
+    timestamp,
   };
 
   return obj;
