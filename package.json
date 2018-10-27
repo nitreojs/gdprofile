@@ -4,7 +4,7 @@
   "description": "API for gdprofiles.com",
   "main": "./lib/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --coverage"
   },
   "repository": {
     "type": "git",
@@ -29,6 +29,7 @@
   "dependencies": {
     "cheerio": "^1.0.0-rc.2",
     "date-fns": "^1.29.0",
+    "jest": "^23.6.0",
     "node-fetch": "^2.2.0"
   }
 }
