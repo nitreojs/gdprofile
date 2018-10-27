@@ -15,17 +15,17 @@ const { search } = require('./lib/index.js');
 
 Example:
 ```js
-console.log(await search('Michigun')); // => Object
+const michigun = await search('Michigun'); // => Object
 
 // equals to
 
-console.log(await search.user('Michigun')); // => Object
+const michigun = await search.user('Michigun'); // => Object
 ```
 
 But what, if we will try to find *not created* account?
 
 ```js
-console.log(await search('userThatDoesntExist')); // => null
+const notFoundUser = await search('userThatDoesntExist'); // => null
 ```
 
 It returns *null* if user is not found!
@@ -39,7 +39,7 @@ const { getDailyLevel } = require('./lib/index.js');
 
 Example:
 ```js
-console.log(await getDailyLevel()); // => Object
+const dailyLevel = await getDailyLevel(); // => Object
 ```
 So easy!
 
