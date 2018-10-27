@@ -1,4 +1,7 @@
-const getDiff = require('./functions/getDifficultyByImg');
+const fetch = require('node-fetch');
+const cheerio = require('cheerio');
+
+const getDiff = require('./getDifficultyByImg');
 
 async function getDailyLevel() {
   const result = await (await fetch('https://gdprofiles.com/')).text();

@@ -1,6 +1,6 @@
-const { getDailyLevel } = require('../lib/index.js');
+const getDaily = require('../functions/getDailyLevel');
 
 (async function getDailyLevel() {
-  console.log(await getDailyLevel());
+  console.log(await getDaily());
   // { daily: 675, name: 'Oscillation', creator: 'GUYdurian', ... }
 })();
