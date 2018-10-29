@@ -4,7 +4,7 @@
   "description": "API for gdprofiles.com",
   "main": "./index.js",
   "scripts": {
-    "test": "jest --coverage --detectOpenHandles"
+    "test": ""
   },
   "repository": {
     "type": "git",
@@ -29,7 +29,6 @@
   "dependencies": {
     "cheerio": "^1.0.0-rc.2",
     "date-fns": "^1.29.0",
-    "jest": "^23.6.0",
     "node-fetch": "^2.2.0"
   }
 }
