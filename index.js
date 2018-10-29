@@ -1,8 +1,8 @@
 const fetch = require('node-fetch');
 const cheerio = require('cheerio');
 
-const getDailyLevel = require('../functions/getDailyLevel');
-const getWeeklyDemon = require('../functions/getWeeklyDemon');
+const getDailyLevel = require('./functions/getDailyLevel');
+const getWeeklyDemon = require('./functions/getWeeklyDemon');
 
 function isNumber(number) {
   return /\d+$/.test(number);
