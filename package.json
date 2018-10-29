@@ -1,10 +1,10 @@
 {
   "name": "gdprofiles",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "API for gdprofiles.com",
-  "main": "./lib/index.js",
+  "main": "./index.js",
   "scripts": {
-    "test": "jest --coverage"
+    "test": "jest --coverage --detectOpenHandles"
   },
   "repository": {
     "type": "git",
