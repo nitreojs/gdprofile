@@ -1,8 +1,8 @@
 function getDifficultyByImg(img) {
-  const [, diffNum, diffMark] = img.match(/gdicon.net\/icons\/difficulty_([0-9]+)(?:_(.*))?\.png/);
-  const diff = ['NA', 'Easy', 'Normal', 'Hard', 'Harder', 'Insane', 'Hard Demon', 'Easy Demon', 'Medium Demon', 'Insane Demon', 'Extreme Demon'][+diffNum];
-  const featured = diffMark === 'featured';
-  const epic = diffMark === 'epic';
+  let [, diffNum, diffMark] = img.match(/gdicon.net\/icons\/difficulty_([0-9]+)(?:_(.*))?\.png/);
+  let diff = ['NA', 'Easy', 'Normal', 'Hard', 'Harder', 'Insane', 'Hard Demon', 'Easy Demon', 'Medium Demon', 'Insane Demon', 'Extreme Demon'][+diffNum];
+  let featured = diffMark === 'featured';
+  let epic = diffMark === 'epic';
 
   return {
     diffNum,

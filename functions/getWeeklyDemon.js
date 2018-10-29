@@ -1,39 +1,25 @@
-const fetch = require('node-fetch');
-const cheerio = require('cheerio');
-const { parse } = require('date-fns');
-
-const getDiff = require('./getDifficultyByImg');
+let fetch = require('node-fetch');
+let cheerio = require('cheerio');
+let getDiff = require('./getDifficultyByImg');
 
 async function getWeeklyDemon() {
-  const result = await (await fetch('https://gdprofiles.com/')).text();
-  const $ = cheerio.load(result);
+  let result = await (await fetch('https://gdprofiles.com/')).text();
+  let $ = cheerio.load(result);
+  let weekly = $('div.col-sm-6.top10').eq(1);
+  let [, weeklyNum] = weekly.find('h3').text().match(/Weekly demon\n#(.*)\n/);
+  let level = weekly.find('h3 a');
+  let { diff, featured, epic } = getDiff(weekly.find('.leveldifficon').attr('src'));
+  let timestamp = +new Date(weekly.find('ul.list-unstyled li').eq(0).text());
 
-  const weekly = $('div.col-sm-6.top10').eq(1);
-  const [, weeklyNum] = weekly.find('h3')
-    .text()
-    .match(/Weekly demon\n#(.*)\n/);
-
-  const level = weekly.find('h3 a');
-  const levelName = level.eq(0).text();
-  const creator = level.eq(1).text();
-
-  const diffImg = weekly.find('.leveldifficon')
-    .attr('src');
-  const { diff, featured, epic } = getDiff(diffImg);
-
-  const timestamp = +parse(weekly.find('ul.list-unstyled li').eq(0).text());
-
-  const obj = {
+  return {
     weekly: +weeklyNum,
-    name: levelName,
-    creator,
+    name: level.eq(0).text(),
+    creator: level.eq(1).text(),
     diff,
     featured,
     epic,
     timestamp,
   };
-
-  return obj;
 }
 
 module.exports = getWeeklyDemon;
