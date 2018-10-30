@@ -15,18 +15,14 @@ function last(array) {
 const obj = {
   async user(value) {
     let user = value;
-
     if (typeof value === 'object') {
       user = value.nick || value.id;
     }
-
-    const result = await (await fetch(`https://gdprofiles.com/${user}`)).text();
-    const $ = cheerio.load(result);
-
-    const statsHtml = $('.staricon tbody tr').eq(1).html();
+    let result = await (await fetch(`https://gdprofiles.com/${user}`)).text();
+    let $ = cheerio.load(result);
+    let statsHtml = $('.staricon tbody tr').eq(1).html();
     if (!statsHtml) return null;
-
-    const [
+    let [
       explosion,
       player,
       ship,
@@ -36,24 +32,19 @@ const obj = {
       robot,
       spider,
     ] = $('#playericons img').get().map(elem => $(elem).attr('src'));
+    let isInTop = !!$('.rank').toString();
+    let stats = $(statsHtml).get().map(elem => +$(elem).text());
 
-    const isInTop = !!$('.rank').toString();
-    const isCreator = !!$('.creator').toString();
-    const mod = !!$('.mod_badge img').toString();
-    const linked = !!$('.badge').toString();
-
-    const stats = $(statsHtml).get().map(elem => +$(elem).text());
-
-    const obj = {
+    return {
       top: isInTop ? stats[0] : 0,
       stars: isInTop ? stats[1] : stats[0],
       diamonds: isInTop ? stats[2] : stats[1],
       secretCoins: isInTop ? stats[3] : stats[2],
       userCoins: isInTop ? stats[4] : stats[3],
       demons: isInTop ? stats[5] : stats[4],
-      cp: isCreator ? last(stats) : 0,
-      mod,
-      linked,
+      cp: !!$('.creator').toString() ? last(stats) : 0,
+      mod: !!$('.mod_badge img').toString(),
+      linked: !!$('.badge').toString(),
       img: {
         explosion,
         player,
@@ -65,10 +56,8 @@ const obj = {
         spider,
       },
     };
-
-    return obj;
   },
-}
+};
 
 async function search(params) {
   let type = (isNumber(params) ? 'level' : 'user');
@@ -77,8 +66,8 @@ async function search(params) {
     type = ((params.level || isNumber(params.id)) ? 'level' : 'user');
   }
 
-  if (type === 'level') return await obj.level(params);
-  else return await obj.user(params);
+  if (type === 'level') return obj.level(params);
+  return obj.user(params);
 }
 
 Object.assign(search, obj);
@@ -88,4 +77,3 @@ module.exports = {
   getDailyLevel,
   getWeeklyDemon,
 };
-
