@@ -12,6 +12,7 @@
   "rules": {
     "linebreak-style": "off",
     "func-names": "off",
-    "prefer-const": "off"
+    "prefer-const": "off",
+    "no-extra-boolean-cast": "off"
   }
 }
