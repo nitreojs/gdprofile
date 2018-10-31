@@ -5,7 +5,7 @@ async function getTop10() {
   let result = await (await fetch('https://gdprofiles.com/')).text();
   let $ = cheerio.load(result);
 
-  console.log($('div.col-sm-6.top10').eq(2).find('ul li').get()
+  return $('div.col-sm-6.top10').eq(2).find('ul li').get()
     .map((elem) => {
       let data = $(elem).find('h3');
       let img = data.find('img').attr('src');
@@ -19,7 +19,7 @@ async function getTop10() {
         mod: !!data.find('.mod_badge img').toString(),
         linked: !!data.find('.badge').toString(),
       };
-    }));
+    });
 }
 
 module.exports = getTop10;
