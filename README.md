@@ -10,22 +10,22 @@
 ### search
 If you want to find a user, you should use this:
 ```js
-const { search } = require('./lib/index.js');
+let { search } = require('./lib/index.js');
 ```
 
 Example:
 ```js
-const michigun = await search('Michigun'); // => Object
+let michigun = await search('Michigun'); // => Object
 
 // equals to
 
-const michigun = await search.user('Michigun'); // => Object
+let michigun = await search.user('Michigun'); // => Object
 ```
 
 But what, if we will try to find *not created* account?
 
 ```js
-const notFoundUser = await search('userThatDoesntExist'); // => null
+let notFoundUser = await search('userThatDoesntExist'); // => null
 ```
 
 It returns *null* if user is not found!
@@ -34,12 +34,12 @@ It returns *null* if user is not found!
 
 If you want to get daily level in Geometry Dash, you should use this!
 ```js
-const { getDailyLevel } = require('./lib/index.js');
+let { getDailyLevel } = require('./lib/index.js');
 ```
 
 Example:
 ```js
-const dailyLevel = await getDailyLevel(); // => Object
+let dailyLevel = await getDailyLevel(); // => Object
 ```
 So easy!
 
@@ -47,9 +47,20 @@ So easy!
 
 If you don't need my full functions, you always can use my custom functions!
 ```js
-const getDifficultyByImg = require('./functions/getDifficultyByImg.js');
+let getDifficultyByImg = require('./functions/getDifficultyByImg.js');
 ```
 
 ```js
-const { diff: difficulty, featured, epic } = getDifficultyByImg(img); // => Object
+let { diff: difficulty, featured, epic } = getDifficultyByImg(img); // => Object
+```
+
+### getTop10
+
+You need to get top 10 from gdprofiles.com. What will you do?
+```js
+let getTop10 = require('./functions/getTop10.js');
+```
+
+```js
+let top = await getTop10(); // => Array<Object>
 ```

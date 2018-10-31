@@ -3,6 +3,7 @@ const cheerio = require('cheerio');
 
 const getDailyLevel = require('./functions/getDailyLevel');
 const getWeeklyDemon = require('./functions/getWeeklyDemon');
+const getTop10 = require('./functions/getTop10');
 
 function isNumber(number) {
   return /\d+$/.test(number);
@@ -76,4 +77,5 @@ module.exports = {
   search,
   getDailyLevel,
   getWeeklyDemon,
+  getTop10,
 };
