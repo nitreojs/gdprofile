@@ -64,3 +64,16 @@ let getTop10 = require('./functions/getTop10.js');
 ```js
 let top = await getTop10(); // => Array<Object>
 ```
+
+### getTopCreators
+
+Oh-oh, do you need to get top 10 creators? Yes!
+```js
+let getTopCreators = require('./functions/getTopCreators.js');
+```
+
+```js
+let top = await getTopCreators(); // => Array<Object>
+```
+
+Rly ez m8!
