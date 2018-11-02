@@ -10,7 +10,7 @@ async function searchUser(value) {
   if (typeof value === 'object') {
     user = value.nick || value.id;
   }
-  let result = await (await fetch(`https://gdprofiles.com/${user}`)).text();
+  let result = await (await fetch(`https://gdprofiles.com/${user.replace(/\s/g, '-')}`)).text();
   let $ = cheerio.load(result);
   let statsHtml = $('.staricon tbody tr').eq(1).html();
   if (!statsHtml) return null;
