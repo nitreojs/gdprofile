@@ -27,6 +27,17 @@ async function searchUser(value) {
   let isInTop = !!$('.rank').toString();
   let stats = $(statsHtml).get().map(elem => +$(elem).text());
 
+  let links = {};
+  let linksTest = /href="(https?:\/\/)?(www\.)?(youtube|twit(ter|ch)|facebook|(plus\.)google|.*\.newgrounds|steamcommunity)\.(com|tv).*"/i;
+  let linksHtml = $('.list-unstyled a').get().map(elem => $(elem).toString()).filter(elem => linksTest.test(elem))
+    .slice(0, -1);
+  linksHtml.forEach((link) => {
+    let url = $(link).attr('href');
+    let text = $(link).text();
+    let [, type] = text.match(/.*\s(twitter|twitch|youtube|steam|google|facebook|newgrounds)\s.*/i);
+    links[type.toLowerCase()] = url;
+  });
+
   return {
     top: isInTop ? stats[0] : 0,
     stars: isInTop ? stats[1] : stats[0],
@@ -47,6 +58,7 @@ async function searchUser(value) {
       robot,
       spider,
     },
+    links,
   };
 }
 
