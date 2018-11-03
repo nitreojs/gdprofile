@@ -58,7 +58,7 @@ async function searchUser(value) {
       robot,
       spider,
     },
-    links,
+    links: Object.keys(links).length ? links : null,
   };
 }
 
