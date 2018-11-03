@@ -10,7 +10,7 @@
 ### search
 If you want to find a user, you should use this:
 ```js
-let { search } = require('./lib/index.js');
+let { search } = require('gdprofiles');
 ```
 
 Example:
@@ -34,7 +34,7 @@ It returns *null* if user is not found!
 
 If you want to get daily level in Geometry Dash, you should use this!
 ```js
-let { getDailyLevel } = require('./lib/index.js');
+let { getDailyLevel } = require('gdprofiles');
 ```
 
 Example:
@@ -47,7 +47,7 @@ So easy!
 
 If you don't need my full functions, you always can use my custom functions!
 ```js
-let getDifficultyByImg = require('./functions/getDifficultyByImg.js');
+let getDifficultyByImg = require('gdprofiles');
 ```
 
 ```js
@@ -56,7 +56,7 @@ let { diff: difficulty, featured, epic } = getDifficultyByImg(img); // => Object
 
 ### getTop10
 
-You need to get top 10 from gdprofiles.com. What will you do?
+You need to get the top 10 from gdprofiles.com. What will you do?
 ```js
 let getTop10 = require('./functions/getTop10.js');
 ```
@@ -67,7 +67,7 @@ let top = await getTop10(); // => Array<Object>
 
 ### getTopCreators
 
-Oh-oh, do you need to get top 10 creators? Yes!
+Oh-oh, it seems like you need to get the top 10 creators? Yes!
 ```js
 let getTopCreators = require('./functions/getTopCreators.js');
 ```
