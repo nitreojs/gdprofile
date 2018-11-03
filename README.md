@@ -8,4 +8,4 @@
 * top-10 creators
 ## API
 
-[Documentation](https://github.com/nitreojs/gdprofile/tree/master/docs/README.md)
+[Documentation](https://github.com/nitreojs/gdprofile/blob/master/docs/README.md)
