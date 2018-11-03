@@ -5,7 +5,6 @@ function getDifficultyByImg(img) {
   let epic = diffMark === 'epic';
 
   return {
-    diffNum,
     diff,
     featured,
     epic,
