@@ -26,18 +26,20 @@ async function searchUser(value) {
   ] = $('#playericons img').get().map(elem => $(elem).attr('src'));
   let isInTop = !!$('.rank').toString();
   let stats = $(statsHtml).get().map(elem => +$(elem).text());
-
+  let badges = $('.col-sm-9 .well.well-sm').eq(2).find('a').get()
+    .map(elem => $(elem).attr('title'));
+  if (badges[0] === undefined) badges = null;
   let links = {};
-  let linksTest = /href="(https?:\/\/)?(www\.)?(youtube|twit(ter|ch)|facebook|(plus\.)google|.*\.newgrounds|steamcommunity)\.(com|tv).*"/i;
-  let linksHtml = $('.list-unstyled a').get().map(elem => $(elem).toString()).filter(elem => linksTest.test(elem))
+  let linksTest = /href="(https?:\/\/)?(www\.)?(youtube|twitter|twitch|facebook|(plus\.)google|.*\.newgrounds|steamcommunity)\.(com|tv).*"/i;
+  let [, followers] = $('#count_follow').text().match(/([0-9]+)\sfollowers/i);
+  let linksHtml = $('.list-unstyled a').get().map(elem => String($(elem))).filter(elem => linksTest.test(elem))
     .slice(0, -1);
   linksHtml.forEach((link) => {
     let url = $(link).attr('href');
     let text = $(link).text();
-    let [, type] = text.match(/.*\s(.+?)\s.*/i);
+    let [, type] = text.match(/.*?\s(.+?)\s.*?/i);
     links[type.toLowerCase()] = url;
   });
-
   return {
     top: isInTop ? stats[0] : 0,
     stars: isInTop ? stats[1] : stats[0],
@@ -48,6 +50,7 @@ async function searchUser(value) {
     cp: !!$('.creator').toString() ? last(stats) : 0,
     mod: !!$('.mod_badge img').toString(),
     linked: !!$('.badge').toString(),
+    followers,
     img: {
       explosion,
       player,
@@ -59,6 +62,7 @@ async function searchUser(value) {
       spider,
     },
     links: Object.keys(links).length ? links : null,
+    badges,
   };
 }
 
