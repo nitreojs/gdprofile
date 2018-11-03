@@ -34,7 +34,7 @@ async function searchUser(value) {
   linksHtml.forEach((link) => {
     let url = $(link).attr('href');
     let text = $(link).text();
-    let [, type] = text.match(/.*\s(twitter|twitch|youtube|steam|google|facebook|newgrounds)\s.*/i);
+    let [, type] = text.match(/.*\s(.+?)\s.*/i);
     links[type.toLowerCase()] = url;
   });
 
