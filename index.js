@@ -3,6 +3,7 @@ let getWeeklyDemon = require('./functions/getWeeklyDemon');
 let getTop10 = require('./functions/getTop10');
 let getTopCreators = require('./functions/getTopCreators');
 let user = require('./functions/searchUser');
+let getLevelInfo = require('./functions/getLevelInfo');
 let getDiffByImg = require('./functions/getDifficultyByImg');
 let getDiffImg = require('./functions/getDifficultyImg');
 
@@ -18,6 +19,7 @@ module.exports = {
   getWeeklyDemon,
   getTop10,
   getTopCreators,
+  getLevelInfo,
   getDiffByImg,
   getDiffImg,
 };

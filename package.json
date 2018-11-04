@@ -1,6 +1,6 @@
 {
   "name": "gdprofiles",
-  "version": "1.4.0-alpha",
+  "version": "1.5.0-alpha",
   "description": "API for gdprofiles.com",
   "main": "./index.js",
   "scripts": {
@@ -28,6 +28,7 @@
   "homepage": "https://github.com/nitreojs/gdprofile#readme",
   "dependencies": {
     "cheerio": "^1.0.0-rc.2",
+    "i": "^0.3.6",
     "node-fetch": "^2.2.0"
   }
 }

@@ -8,5 +8,6 @@ Hi there! Here you can *choose the function* you need to understand and *see exa
 * [getWeeklyDemon](./getWeeklyDemon.md)
 * [getTop10](./getTop10.md)
 * [getTopCreators](./getTopCreators.md)
+* [getLevelInfo](./getLevelInfo.md)
 * [getDifficultyByImg](./getDifficultyByImg.md)
 * [getDifficultyImg](./getDifficultyImg.md)
