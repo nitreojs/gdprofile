@@ -40,18 +40,22 @@ let misha = await search('mishaKovalenko17295'); // null
 // when account is not found!
 ```
 
-| Key         |  Type     | Description                     |
-|-------------|-----------|---------------------------------|
-| top         | Number    | Player's top                    |
-| stars       | Number    | Player's stars                  |
-| diamonds    | Number    | Player's diamonds               |
-| secretCoins | Number    | Player's secret coins           |
-| userCoins   | Number    | Player's user coins             |
-| demons      | Number    | Player's demons                 |
-| cp          | Number    | Player's creator points         |
-| mod         | Boolean   | Is user moderator?              |
-| linked      | Boolean   | Is user linked to a gdprofiles? |
-| img         | Object    | Object of player's icons        |
-| links       | Object    | Object of player's linked links |
-| badges      | Array     | Array of user's badges          |
-| lastLevels  | Array     | Array of user's last levels     |
+| Key         |  Type     | Description                       |
+|-------------|-----------|-----------------------------------|
+| top         | Number    | Player's top                      |
+| stars       | Number    | Player's stars                    |
+| diamonds    | Number    | Player's diamonds                 |
+| secretCoins | Number    | Player's secret coins             |
+| userCoins   | Number    | Player's user coins               |
+| demons      | Number    | Player's demons                   |
+| cp          | Number    | Player's creator points           |
+| desc        | String    | Player's description              |
+| created     | Number    | When was player's account created |
+| location    | String    | Where is player located?          |
+| video       | String    | Last player's level video         |
+| mod         | Boolean   | Is user moderator?                |
+| linked      | Boolean   | Is user linked to a gdprofiles?   |
+| img         | Object    | Object of player's icons          |
+| links       | Object    | Object of player's linked links   |
+| badges      | Array     | Array of user's badges            |
+| lastLevels  | Array     | Array of user's last levels       |

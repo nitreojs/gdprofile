@@ -38,12 +38,16 @@ async function searchUser(user) {
   ] = $('#playericons img').get().map(elem => $(elem).attr('src'));
   let isInTop = !!$('.rank').toString();
   let stats = $(statsHtml).get().map(elem => +$(elem).text());
+  let desc = $('p.well').text() || null;
+  let created = $('.list-unstyled:nth-child(6) > li:nth-child(3) > em:nth-child(1)').text().match(/gd account created on (.*)/i) || null;
   let badges = $('.col-sm-9 .well.well-sm').eq(2).find('a').get()
     .map(elem => $(elem).attr('title'));
+  let location = $('.list-unstyled:nth-child(6) > li:nth-child(4)').text().trim().replace(/\n/, '') || null;
+  let video = $('.embed-responsive iframe').attr('src') ? $('.embed-responsive iframe').attr('src').match(/\/\/(.*)\?wmode=transparent/) : null;
   if (badges[0] === undefined) badges = null;
   let links = {};
   let linksTest = /href="(https?:\/\/)?(www\.)?(youtube|twitter|twitch|facebook|(plus\.)google|.*\.newgrounds|steamcommunity)\.(com|tv).*"/i;
-  let [, followers] = $('#count_follow').text().match(/([0-9]+)\sfollowers/i);
+  let followers = +$('#count_follow').text().match(/([0-9]+)\sfollowers/i)[1];
   let linksHtml = $('.list-unstyled a').get().map(elem => String($(elem))).filter(elem => linksTest.test(elem))
     .slice(0, -1);
   linksHtml.forEach((link) => {
@@ -52,7 +56,7 @@ async function searchUser(user) {
     let [, type] = text.match(/.*?\s(.+?)\s.*?/i);
     links[type.toLowerCase()] = url;
   });
-  let lastLevels = $('div.well:nth-child(6) > ul:nth-child(1) li').get().map((elem) => {
+  let lastLevels = $('.well:nth-child(6) > ul:nth-child(1) li').get().map((elem) => {
     let level = $(elem).find('table tbody tr');
     let img = level.find('td img.leveldifficon').attr('src');
     let { diff, featured, epic } = getDiff(img);
@@ -87,6 +91,10 @@ async function searchUser(user) {
     userCoins: isInTop ? stats[4] : stats[3],
     demons: isInTop ? stats[5] : stats[4],
     cp: !!$('.creator').toString() ? last(stats) : 0,
+    desc,
+    created: created ? +new Date(created[1]) : null,
+    location,
+    video: video ? video[1] : null,
     mod: !!$('.mod_badge img').toString(),
     linked: !!$('.badge').toString(),
     followers,
