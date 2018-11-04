@@ -2,6 +2,11 @@ let fetch = require('node-fetch');
 let cheerio = require('cheerio');
 let getDiff = require('./getDifficultyByImg');
 
+/**
+ * Getting daily level's data from gdprofiles.com
+ * @return {Object}
+ */
+
 async function getDailyLevel() {
   let result = await (await fetch('https://gdprofiles.com/')).text();
   let $ = cheerio.load(result);

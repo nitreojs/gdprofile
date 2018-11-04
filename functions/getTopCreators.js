@@ -1,6 +1,12 @@
 let fetch = require('node-fetch');
 let cheerio = require('cheerio');
 
+/**
+ * Getting creators top from gdprofiles.com
+ * @async
+ * @return {Object[]}
+ */
+
 async function getTopCreators() {
   let result = await (await fetch('https://gdprofiles.com/')).text();
   let $ = cheerio.load(result);

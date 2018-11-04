@@ -2,6 +2,12 @@ let fetch = require('node-fetch');
 let cheerio = require('cheerio');
 let getDiff = require('./getDifficultyByImg');
 
+/**
+ * Getting weekly demon's info from gdprofiles.com
+ * @async
+ * @return {Object}
+ */
+
 async function getWeeklyDemon() {
   let result = await (await fetch('https://gdprofiles.com/')).text();
   let $ = cheerio.load(result);

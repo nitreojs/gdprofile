@@ -5,11 +5,22 @@ function last(array) {
   return array[array.length - 1];
 }
 
-async function searchUser(value) {
-  let user = value;
-  if (typeof value === 'object') {
-    user = value.nick || value.id;
+/**
+ * Getting user's information from gdprofiles.com
+ * @async
+ * @param {string} user - user's nickname
+ * @return {Object}
+ */
+
+async function searchUser(user) {
+  if (!user) {
+    let error = new TypeError('user is required');
+    throw error;
+  } else if (typeof user !== 'string') {
+    let error = new TypeError(`typeof user should be string, got ${typeof user}`);
+    throw error;
   }
+
   let result = await (await fetch(`https://gdprofiles.com/${user.replace(/\s/g, '-')}`)).text();
   let $ = cheerio.load(result);
   let statsHtml = $('.staricon tbody tr').eq(1).html();
