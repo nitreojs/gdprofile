@@ -1,6 +1,6 @@
 {
   "name": "gdprofiles",
-  "version": "1.5.0-alpha",
+  "version": "1.6.0-alpha",
   "description": "API for gdprofiles.com",
   "main": "./index.js",
   "scripts": {

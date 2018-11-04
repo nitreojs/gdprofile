@@ -54,3 +54,4 @@ let misha = await search('mishaKovalenko17295'); // null
 | img         | Object    | Object of player's icons        |
 | links       | Object    | Object of player's linked links |
 | badges      | Array     | Array of user's badges          |
+| lastLevels  | Array     | Array of user's last levels     |

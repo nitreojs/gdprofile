@@ -1,5 +1,6 @@
-const fetch = require('node-fetch');
-const cheerio = require('cheerio');
+let fetch = require('node-fetch');
+let cheerio = require('cheerio');
+let getDiff = require('./getDifficultyByImg');
 
 function last(array) {
   return array[array.length - 1];
@@ -51,6 +52,33 @@ async function searchUser(user) {
     let [, type] = text.match(/.*?\s(.+?)\s.*?/i);
     links[type.toLowerCase()] = url;
   });
+  let lastLevels = $('div.well:nth-child(6) > ul:nth-child(1) li').get().map((elem) => {
+    let level = $(elem).find('table tbody tr');
+    let img = level.find('td img.leveldifficon').attr('src');
+    let { diff, featured, epic } = getDiff(img);
+    let data = level.find('td').eq(1);
+    let name = data.find('h4 a').text();
+    let stars = +data.find('span').eq(0).text();
+    let coins = +data.find('span .levelCoins').attr('src').match(/\/icons\/coins([0-9]+)\.png/)[1] || null;
+    let dailyInfo = data.find('span').eq(1).find('img');
+    let wasDaily = !!dailyInfo.toString();
+    let daily = wasDaily ? dailyInfo.attr('title') : null;
+    let weeklyInfo = data.find('span').eq(2).find('img');
+    let wasWeekly = !!weeklyInfo.toString();
+    let weekly = wasWeekly ? weeklyInfo.attr('title') : null;
+
+    return {
+      name,
+      stars,
+      coins,
+      diff,
+      featured,
+      epic,
+      daily,
+      weekly,
+    };
+  });
+
   return {
     top: isInTop ? stats[0] : 0,
     stars: isInTop ? stats[1] : stats[0],
@@ -74,6 +102,7 @@ async function searchUser(user) {
     },
     links: Object.keys(links).length ? links : null,
     badges,
+    lastLevels: lastLevels.length ? lastLevels : null,
   };
 }
 
