@@ -9,14 +9,9 @@ Hi! It seems like you're going to know *all mechanics* of search user's function
 ```js
 let { search } = require('gdprofiles');
 
-// We're finding user 'Michigun'...
-// And there are two methods of getting user's info:
+// We're finding user 'Michigun'!
 
 let michigun = await search('michigun'); // => Object
-
-// or
-
-let secondMichigun = await search.user('michigun'); // => Object
 
 // Also, if we'll try to find user
 // by typing his nickname with incorrect

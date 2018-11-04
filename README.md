@@ -6,6 +6,7 @@
 * get weekly demon and it's info
 * top-10 players
 * top-10 creators
+and more!
 ## API
 
 [Documentation](https://github.com/nitreojs/gdprofile/blob/master/docs/README.md)
