@@ -37,6 +37,11 @@ async function searchUser(user) {
     spider,
   ] = $('#playericons img').get().map(elem => $(elem).attr('src'));
   let isInTop = !!$('.rank').toString();
+  let mod = {
+    is: !!$('.mod_badge img').toString(),
+  };
+  mod.level = mod.is ? +$('.mod_badge img').attr('alt').replace(/mod\s/, '') : 0;
+  mod.right = mod.is ? (mod.level === 1 ? 'Moderator' : 'Elder Moderator') : '';
   let stats = $(statsHtml).get().map(elem => +$(elem).text());
   let desc = $('p.well').text() || null;
   let created = $('.list-unstyled:nth-child(6) > li:nth-child(3) > em:nth-child(1)').text().match(/gd account created on (.*)/i) || null;
@@ -61,25 +66,21 @@ async function searchUser(user) {
     let img = level.find('td img.leveldifficon').attr('src');
     let { diff, featured, epic } = getDiff(img);
     let data = level.find('td').eq(1);
-    let name = data.find('h4 a').text();
-    let stars = +data.find('span').eq(0).text();
     let coins = data.find('span .levelCoins').attr('src');
     let dailyInfo = data.find('span').eq(1).find('img');
     let wasDaily = !!dailyInfo.toString();
-    let daily = wasDaily ? dailyInfo.attr('title') : null;
     let weeklyInfo = data.find('span').eq(2).find('img');
     let wasWeekly = !!weeklyInfo.toString();
-    let weekly = wasWeekly ? weeklyInfo.attr('title') : null;
 
     return {
-      name,
-      stars,
+      name: data.find('h4 a').text(),
+      stars: +data.find('span').eq(0).text(),
       coins: coins ? +coins.match(/\/icons\/coinsU?([0-9]+)\.png/)[1] : 0,
       diff,
       featured,
       epic,
-      daily,
-      weekly,
+      daily: wasDaily ? dailyInfo.attr('title') : null,
+      weekly: wasWeekly ? weeklyInfo.attr('title') : null,
     };
   });
 
@@ -95,7 +96,7 @@ async function searchUser(user) {
     created: created ? +new Date(created[1]) : null,
     location,
     video: video ? video[1] : null,
-    mod: !!$('.mod_badge img').toString(),
+    mod,
     linked: !!$('.badge').toString(),
     followers,
     img: {
