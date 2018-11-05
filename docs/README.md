@@ -11,3 +11,7 @@ Hi there! Here you can *choose the function* you need to understand and *see exa
 * [getLevelInfo](./getLevelInfo.md)
 * [getDifficultyByImg](./getDifficultyByImg.md)
 * [getDifficultyImg](./getDifficultyImg.md)
+
+Also, there's some lifehacks to simplify your life!
+
+* [Simplify my life please!](./lifehacks.md)

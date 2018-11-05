@@ -19,6 +19,7 @@ let weekly = await getWeeklyDemon(); // => Object
 | Key       | Type    | Description               |
 |-----------|---------|---------------------------|
 | weekly    | Number  | Weekly level by increment |
+| id        | Number  | Level's id                |
 | name      | String  | Level name                |
 | creator   | String  | Creator's nickname        |
 | diff      | String  | Level's difficulty        |

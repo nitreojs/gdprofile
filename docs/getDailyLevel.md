@@ -18,6 +18,7 @@ let daily = await getDailyLevel(); // => Object
 |-----------|---------|--------------------------|
 | daily     | Number  | Daily level by increment |
 | name      | String  | Level name               |
+| id        | Number  | Level's id               |
 | creator   | String  | Creator's nickname       |
 | diff      | String  | Level's difficulty       |
 | featured  | Boolean | Is level featured?       |

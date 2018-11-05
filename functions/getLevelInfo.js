@@ -1,7 +1,7 @@
 let fetch = require('node-fetch');
 let cheerio = require('cheerio');
-let getDiff = require('./getDifficultyByImg');
 let { camelize } = require('i')();
+let getDiff = require('./getDifficultyByImg');
 
 /**
  * Getting level's data from gdprofiles.com
@@ -15,7 +15,7 @@ async function getLevelInfo(id, creator) {
   let $ = cheerio.load(result);
 
   let h1 = $('.container h1').text();
-  let check = /^(User .* not found|404)$/i.test(h1);
+  let check = /((User|Level) .* not found|404)$/i.test(h1);
   if (check) return null;
 
   let img = $('.leveldifficon').attr('src');
@@ -55,6 +55,9 @@ async function getLevelInfo(id, creator) {
     desc,
     stars,
     coins,
+    diff,
+    featured,
+    epic,
     downloads,
     likes,
     length,

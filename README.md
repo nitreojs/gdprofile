@@ -1,3 +1,10 @@
+[![NPM](https://nodei.co/npm/gdprofiles.png)](https://nodei.co/npm/gdprofiles/)
+
+<p  align="center">
+<a  href="https://www.npmjs.com/package/gdprofiles"><img  src="https://img.shields.io/npm/v/gdprofiles.svg?style=flat-square"  alt="Version"></a>
+<a  href="https://www.npmjs.com/package/gdprofiles"><img  src="https://img.shields.io/npm/dt/gdprofiles.svg?style=flat-square"  alt="Downloads"></a>
+</p>
+
 ## gdprofiles
 **gdprofiles** is an API for [GDProfiles](https://gdprofiles.com), which allow you to:
 * search for one user and get his information

@@ -17,6 +17,7 @@ async function getWeeklyDemon() {
 
   return {
     weekly: +weekly.find('h3').text().match(/Weekly demon\n#(.*)\n/)[1],
+    id: +level.eq(0).attr('href').match(/gdprofiles\.com\/.*\/([0-9]+)/)[1],
     name: level.eq(0).text(),
     creator: level.eq(1).text(),
     diff,

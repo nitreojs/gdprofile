@@ -47,13 +47,13 @@ async function searchUser(user) {
   if (badges[0] === undefined) badges = null;
   let links = {};
   let linksTest = /href="(https?:\/\/)?(www\.)?(youtube|twitter|twitch|facebook|(plus\.)google|.*\.newgrounds|steamcommunity)\.(com|tv).*"/i;
-  let followers = +$('#count_follow').text().match(/([0-9]+)\sfollowers/i)[1];
+  let followers = +$('#count_follow').text().match(/([0-9]+)\sfollowers?/i)[1];
   let linksHtml = $('.list-unstyled a').get().map(elem => String($(elem))).filter(elem => linksTest.test(elem))
     .slice(0, -1);
   linksHtml.forEach((link) => {
     let url = $(link).attr('href');
     let text = $(link).text();
-    let [, type] = text.match(/.*?\s(.+?)\s.*?/i);
+    let type = text.match(/.*?\s(.+?)\s.*?/i)[1];
     links[type.toLowerCase()] = url;
   });
   let lastLevels = $('.well:nth-child(6) > ul:nth-child(1) li').get().map((elem) => {
@@ -63,7 +63,7 @@ async function searchUser(user) {
     let data = level.find('td').eq(1);
     let name = data.find('h4 a').text();
     let stars = +data.find('span').eq(0).text();
-    let coins = +data.find('span .levelCoins').attr('src').match(/\/icons\/coins([0-9]+)\.png/)[1] || null;
+    let coins = data.find('span .levelCoins').attr('src');
     let dailyInfo = data.find('span').eq(1).find('img');
     let wasDaily = !!dailyInfo.toString();
     let daily = wasDaily ? dailyInfo.attr('title') : null;
@@ -74,7 +74,7 @@ async function searchUser(user) {
     return {
       name,
       stars,
-      coins,
+      coins: coins ? +coins.match(/\/icons\/coinsU?([0-9]+)\.png/)[1] : 0,
       diff,
       featured,
       epic,
