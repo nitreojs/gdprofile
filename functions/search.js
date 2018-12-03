@@ -95,7 +95,10 @@ async function searchUser(user) {
     desc,
     created: created ? +new Date(created[1]) : null,
     location,
-    video: video ? video[1] : null,
+    video: video ? {
+      embed: video[1],
+      full: video[1].replace(/embed\//, 'watch?v='),
+    } : null,
     mod,
     linked: !!$('.badge').toString(),
     followers,
