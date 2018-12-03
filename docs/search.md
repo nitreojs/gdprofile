@@ -52,7 +52,7 @@ let misha = await search('mishaKovalenko17295'); // null
 | desc        | String    | Player's description              |
 | created     | Number    | When was player's account created |
 | location    | String    | Where is player located?          |
-| video       | String    | Last player's level video         |
+| video       | Object    | Last player's level video         |
 | mod         | Boolean   | Is user moderator?                |
 | linked      | Boolean   | Is user linked to a gdprofiles?   |
 | img         | Object    | Object of player's icons          |
